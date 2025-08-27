@@ -1,160 +1,201 @@
-"use client";
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Globe, Search, User, ShoppingBag, Menu, X } from 'lucide-react';
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Search, User, ShoppingBag, Menu, X, Globe } from 'lucide-react';
 
-export default function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [showNavbar, setShowNavbar] = useState(true);
+
+  useEffect(() => {
+    let ticking = false;
+    
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // Only hide navbar if scrolled down more than 100px and scrolling down
+          if (currentScrollY > 100 && currentScrollY > lastScrollY) {
+            setShowNavbar(false);
+          } 
+          // Show navbar if scrolling up or at the top of the page
+          else if (currentScrollY < lastScrollY || currentScrollY < 10) {
+            setShowNavbar(true);
+          }
+          
+          setLastScrollY(currentScrollY);
+          ticking = false;
+        });
+        
+        ticking = true;
+      }
+    };
+
+    // Add throttle to scroll event
+    window.addEventListener('scroll', controlNavbar, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, [lastScrollY]);
 
   const navItems = [
-    'COLLECTIONS',
-    'SKINCARE', 
-    'GIFT GUIDE',
-    'MAKEUP',
-    'LA PRAIRIE SERVICES',
-    'THE HOUSE'
+    // 'COLLECTIONS',
+    // 'SKINCARE', 
+    // 'GIFT GUIDE',
+    // 'MAKEUP',
+    // 'LA PRAIRIE SERVICES',
+    // 'THE HOUSE'
   ];
 
   return (
-    <>
-      {/* Top Banner */}
-      <div className="bg-black text-white text-center py-2 text-xs sm:text-sm">
-        <span>SUBSCRIBE AND ENJOY 15% OFF YOUR FIRST ONLINE PURCHASE*</span>
-      </div>
-
-      {/* Main Navbar */}
-      <motion.nav 
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="relative bg-black/20 backdrop-blur-md border-b border-white/10"
+    <AnimatePresence>
+      <motion.div 
+        className="fixed top-0 left-0 right-0 z-50"
+        initial={{ y: 0 }}
+        animate={{ y: showNavbar ? 0 : '-100%' }}
+        transition={{ type: 'tween', duration: 0.3 }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
-            
-            {/* Left Section - Globe Icon (Desktop) */}
-            <div className="hidden lg:flex items-center">
-              <Globe className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer transition-colors" />
-            </div>
+        {/* Top Banner */}
+        <motion.div 
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className=" text-white text-center py-3 text-xs font-light tracking-widest"
+        >
+          SUBSCRIBE AND ENJOY 15% OFF YOUR FIRST ONLINE PURCHASE*
+        </motion.div>
 
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden">
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-white p-2"
+        {/* Main Navbar */}
+        <motion.nav 
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className=""
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Top Row - Globe, Logo, Actions */}
+            <div className="flex justify-between items-center h-16 lg:h-20">
+              
+              {/* Left - Globe Icon */}
+              <motion.div 
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center"
               >
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
+                <Globe className="h-5 w-5 lg:h-6 lg:w-6 text-white cursor-pointer hover:text-white/80 transition-colors duration-300" />
+              </motion.div>
+
+              {/* Center - Logo */}
+              <motion.div 
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="text-center"
+              >
+                <h1 className="text-white text-xl lg:text-2xl font-light tracking-[0.3em] ml-10 cursor-pointer">
+                  LA PRAIRIE
+                </h1>
+                <p className="text-white/80 text-xs font-light tracking-[0.2em] mt-0.5">
+                  SWITZERLAND
+                </p>
+              </motion.div>
+
+              {/* Right - Help, User, Cart, Mobile Menu */}
+              <div className="flex items-center space-x-4 lg:space-x-6">
+                <span className="hidden lg:block text-white text-sm font-light cursor-pointer hover:text-white/80 transition-colors duration-300">
+                  Can we help?
+                </span>
+                
+                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                  <User className="h-5 w-5 text-white cursor-pointer hover:text-white/80 transition-colors duration-300" />
+                </motion.div>
+                
+                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                  <ShoppingBag className="h-5 w-5 text-white cursor-pointer hover:text-white/80 transition-colors duration-300" />
+                </motion.div>
+
+                {/* Mobile Menu Button */}
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="lg:hidden text-white"
+                >
+                  {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </button>
+              </div>
             </div>
 
-            {/* Center Navigation (Desktop) */}
-            <div className="hidden lg:flex items-center space-x-8 xl:space-x-12">
+            {/* Bottom Row - Navigation Menu (Desktop) */}
+            <motion.div 
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="hidden lg:flex justify-center items-center space-x-8 pb-4 border-t border-white/10 pt-4"
+            >
               {navItems.map((item, index) => (
                 <motion.a
                   key={item}
                   href="#"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-white hover:text-gray-300 text-sm font-light tracking-wider transition-colors duration-300 relative group"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.1 * index }}
+                  className="text-white text-sm font-light tracking-wide hover:text-white/80 transition-colors duration-300"
+                  whileHover={{ y: -2 }}
                 >
                   {item}
-                  <span className="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
                 </motion.a>
               ))}
-            </div>
-
-            {/* Logo (Center on Mobile) */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2"
-            >
-              <div className="text-center">
-                <h1 className="text-white text-lg sm:text-xl lg:text-2xl font-light tracking-[0.2em]">
-                  LA PRAIRIE
-                </h1>
-                <p className="text-white/80 text-xs tracking-[0.3em] mt-1">
-                  SWITZERLAND
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Right Section */}
-            <div className="flex items-center space-x-4 lg:space-x-6">
-              {/* Help Text (Desktop) */}
-              <div className="hidden lg:block text-white text-sm">
-                Can we help?
-              </div>
               
-              {/* Search Bar (Desktop) */}
-              <div className="hidden lg:flex items-center bg-white/10 rounded border border-white/20 px-3 py-2 min-w-[200px]">
+              {/* Search Bar */}
+              <div className="relative flex items-center">
                 <input
                   type="text"
                   placeholder="SEARCH"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="bg-transparent text-white placeholder-white/70 text-sm flex-1 outline-none"
+                  className="bg-transparent border border-white/30 text-white placeholder-white/70 focus:border-white focus:outline-none transition-colors duration-300 w-40 px-4 py-2 text-sm tracking-wide"
                 />
-                <Search className="w-4 h-4 text-white/70 ml-2" />
+                <Search className="absolute right-3 h-4 w-4 text-white/70" />
               </div>
+            </motion.div>
 
-              {/* Search Icon (Mobile) */}
-              <Search className="lg:hidden w-5 h-5 text-white cursor-pointer" />
-              
-              {/* User and Cart Icons */}
-              <User className="w-5 h-5 lg:w-6 lg:h-6 text-white cursor-pointer hover:text-gray-300 transition-colors" />
-              <ShoppingBag className="w-5 h-5 lg:w-6 lg:h-6 text-white cursor-pointer hover:text-gray-300 transition-colors" />
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ 
-            opacity: isMobileMenuOpen ? 1 : 0,
-            height: isMobileMenuOpen ? 'auto' : 0
-          }}
-          transition={{ duration: 0.3 }}
-          className="lg:hidden overflow-hidden bg-black/90 backdrop-blur-md"
-        >
-          <div className="px-4 py-6 space-y-4">
-            {/* Mobile Search */}
-            <div className="flex items-center bg-white/10 rounded border border-white/20 px-3 py-2 mb-4">
-              <input
-                type="text"
-                placeholder="SEARCH"
-                className="bg-transparent text-white placeholder-white/70 text-sm flex-1 outline-none"
-              />
-              <Search className="w-4 h-4 text-white/70 ml-2" />
-            </div>
-            
-            {/* Mobile Navigation Links */}
-            {navItems.map((item, index) => (
-              <motion.a
-                key={item}
-                href="#"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="block text-white text-lg font-light tracking-wider py-2 border-b border-white/10 last:border-b-0"
-                onClick={() => setIsMobileMenuOpen(false)}
+            {/* Mobile Menu */}
+            {isMenuOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                className="lg:hidden bg-black/95 backdrop-blur-sm border-t border-white/10"
               >
-                {item}
-              </motion.a>
-            ))}
-            
-            {/* Mobile Globe */}
-            <div className="flex items-center justify-center pt-4">
-              <Globe className="w-6 h-6 text-white cursor-pointer" />
-            </div>
+                <div className="px-4 py-6 space-y-4">
+                  {navItems.map((item) => (
+                    <a
+                      key={item}
+                      href="#"
+                      className="block text-white text-sm font-light tracking-wide hover:text-white/80 transition-colors duration-300 py-2"
+                    >
+                      {item}
+                    </a>
+                  ))}
+                  <div className="pt-4">
+                    <div className="relative">
+                      <input
+                        type="text"
+                        placeholder="SEARCH"
+                        className="w-full bg-transparent border border-white/30 text-white placeholder-white/70 py-3 px-4 focus:border-white focus:outline-none text-sm tracking-wide"
+                      />
+                      <Search className="absolute right-3 top-3 h-4 w-4 text-white/70" />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
           </div>
-        </motion.div>
-      </motion.nav>
-    </>
+        </motion.nav>
+      </motion.div>
+    </AnimatePresence>
   );
-}
+};
+
+export default Navbar;
