@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import Features from '@/components/Features'
 import Latest from '@/components/Latest'
 import Collection from '@/components/Collection'   
+import Service from '@/components/Service'
 
 export default function Home() {
   const [activeStep, setActiveStep] = useState(0)
@@ -116,7 +117,8 @@ export default function Home() {
       </div>
       <Features />
       <Latest />
-      <Collection />
+      {/* <Collection /> */}
+      <Service />
     </div>
   )
 }

@@ -93,9 +93,9 @@ export default function Footer() {
         </div>
 
         {/* Footer Links */}
-        <div className="border-t border-gray-200 pt-12">
+        {/* <div className="border-t border-gray-200 pt-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
-            {/* About Section */}
+          
             <div>
               <h4 className="font-medium text-gray-900 mb-6 tracking-wide">ABOUT</h4>
               <ul className="space-y-4">
@@ -107,7 +107,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Support Section */}
+           
             <div>
               <h4 className="font-medium text-gray-900 mb-6 tracking-wide">SUPPORT</h4>
               <ul className="space-y-4">
@@ -120,7 +120,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* LA PRAIRIE Section */}
+           
             <div>
               <h4 className="font-medium text-gray-900 mb-6 tracking-wide">LA PRAIRIE</h4>
               <ul className="space-y-4">
@@ -133,7 +133,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Legal Section */}
+            
             <div>
               <h4 className="font-medium text-gray-900 mb-6 tracking-wide">LEGAL</h4>
               <ul className="space-y-4">
@@ -145,7 +145,7 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Live Chat Button */}

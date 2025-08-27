@@ -148,16 +148,7 @@ const Navbar = () => {
               ))}
               
               {/* Search Bar */}
-              <div className="relative flex items-center">
-                <input
-                  type="text"
-                  placeholder="SEARCH"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="bg-transparent border border-white/30 text-white placeholder-white/70 focus:border-white focus:outline-none transition-colors duration-300 w-40 px-4 py-2 text-sm tracking-wide"
-                />
-                <Search className="absolute right-3 h-4 w-4 text-white/70" />
-              </div>
+            
             </motion.div>
 
             {/* Mobile Menu */}

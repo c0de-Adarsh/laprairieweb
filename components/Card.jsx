@@ -113,10 +113,10 @@ export default function Product() {
         
       </div>
      
-      <div className="">
+      {/* <div className="">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Product Title */}
+          
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -128,10 +128,10 @@ export default function Product() {
             </h1>
           </motion.div>
 
-          {/* Main Content Grid */}
+         
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             
-            {/* Left Content */}
+           
             <motion.div
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -139,12 +139,12 @@ export default function Product() {
               className="space-y-8 lg:pr-8"
             >
               
-              {/* Product Headline */}
+            
               <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-gray-800 leading-relaxed">
                 LIFE MATRIX HAUTE REJUVENATION YOUTH LONGEVITY FACE CREAM
               </h2>
 
-              {/* Product Description */}
+            
               <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light">
                 Your skin's future is reimagined. Stronger, more resilient and beautifully 
                 timeless. Unlock your Skin Longevity Matrix, La Prairie's first 
@@ -152,7 +152,7 @@ export default function Product() {
                 appearance.
               </p>
 
-              {/* CTA Button */}
+              
               <motion.button
                 whileHover={{ 
                   scale: 1.02,
@@ -165,7 +165,7 @@ export default function Product() {
               </motion.button>
             </motion.div>
 
-            {/* Right Image */}
+          
             <motion.div
               initial={{ x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -186,22 +186,24 @@ export default function Product() {
             </motion.div>
           </div>
 
-          {/* Bottom Indicator Dot */}
-       
+          
+          <div className="flex justify-center mt-4">
+            <div className="w-2.5 h-2.5 bg-gray-800 rounded-full animate-bounce" />
+          </div>
 
-          {/* Additional Product Benefits Section */}
+       
          
-          {/* Bottom CTA Section */}
+          
         
         </div>
-      </div>
+      </div> */}
        <div className="container mx-auto px-4 py-8 lg:py-16">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 max-w-7xl ">
           
-          {/* Product Image Section */}
+        
           <div className="flex-1 relative lg:ml-10">
             <div className="relative overflow-hidden shadow-2xl group">
-              {/* High-quality image without rounded corners */}
+             
               <div className="relative h-[400px] lg:h-[600px] overflow-hidden">
                 <img
                   src="/img4.jpg"
@@ -209,30 +211,30 @@ export default function Product() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 
-                {/* Overlay gradient for better text readability */}
+              
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 
-                {/* Subtle shine effect on hover */}
+              
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
               </div>
             </div>
           </div>
           
-          {/* Content Section */}
+         
           <div className="flex-1 max-w-lg text-center lg:text-left">
-            {/* Heading */}
+           
             <h1 className="text-2xl lg:text-4xl font-light text-stone-600 mb-8 lg:mb-12 tracking-wide leading-relaxed">
               A LIMITED-TIME INDULGENCE
             </h1>
             
-            {/* Description */}
+           
             <p className="text-base lg:text-lg text-stone-600 leading-relaxed mb-8 lg:mb-12 font-light">
               Complete your Pure Gold ritual with a radiant finishing touch — receive a 
               miniature Pure Gold Radiance Cream as our gift with the purchase of the 
               new Pure Gold Revitalizing Essence.
             </p>
             
-            {/* CTA Button */}
+          
             <button className="bg-gray-700 hover:bg-stone-800 text-white font-medium px-8 lg:px-12 py-4 lg:py-5 transition-all duration-300 transform hover:scale-105 hover:shadow-xl tracking-wider text-sm lg:text-base">
               SHOP NOW
             </button>
@@ -240,7 +242,7 @@ export default function Product() {
         </div>
       </div>
       
-      {/* Subtle floating particles animation */}
+ 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(20)].map((_, i) => (
           <div
