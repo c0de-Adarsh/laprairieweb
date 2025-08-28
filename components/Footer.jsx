@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl flex  mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 mb-16">
           {/* Can We Help Section */}
           <div className="space-y-8">
@@ -42,7 +42,7 @@ export default function Footer() {
           </div>
 
           {/* Subscribe Section */}
-          <div className="space-y-8">
+          <div className="space-y-8  ">
             <h3 className="text-lg font-medium text-gray-900 tracking-wide">
               SUBSCRIBE
             </h3>
