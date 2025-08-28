@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
 
           {/* Find A Store Section */}
-          <div className="space-y-8">
+          {/* <div className="space-y-8">
             <h3 className="text-lg font-medium text-gray-900 tracking-wide">
               FIND A STORE
             </h3>
@@ -89,7 +89,7 @@ export default function Footer() {
               />
               <MapPin className="absolute right-0 bottom-3 w-5 h-5 text-gray-400" />
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Footer Links */}

@@ -5,6 +5,7 @@ import Card from '@/components/Card';
 import SccondCard from '@/components/SccondCard';
 import Features from '@/components/Features';
 import Footer from '@/components/Footer';
+import OurService from '@/components/OurService';
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -77,7 +78,8 @@ export default function Home() {
         </div>
       </div>
       <Card />
-      <SccondCard />
+      {/* <SccondCard /> */}
+      <OurService />
       <Footer />
       
     </div>

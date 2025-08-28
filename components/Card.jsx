@@ -197,7 +197,7 @@ export default function Product() {
         
         </div>
       </div> */}
-       <div className="container mx-auto px-4 py-8 lg:py-16">
+       {/* <div className="container mx-auto px-4 py-8 lg:py-16">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 max-w-7xl ">
           
         
@@ -240,7 +240,7 @@ export default function Product() {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
       
  
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

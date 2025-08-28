@@ -5,6 +5,7 @@ import Features from '@/components/Features'
 import Latest from '@/components/Latest'
 import Collection from '@/components/Collection'   
 import Service from '@/components/Service'
+import OurService from '@/components/OurService'
 
 export default function Home() {
   const [activeStep, setActiveStep] = useState(0)
@@ -115,10 +116,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Features />
-      <Latest />
+      {/* <Features /> */}
+      {/* <Latest /> */}
       {/* <Collection /> */}
-      <Service />
+      {/* <Service /> */}
+      <OurService />
     </div>
   )
 }

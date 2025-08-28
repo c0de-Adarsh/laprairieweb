@@ -104,17 +104,17 @@ const Navbar = () => {
 
               {/* Right - Help, User, Cart, Mobile Menu */}
               <div className="flex items-center space-x-4 lg:space-x-6">
-                <span className="hidden lg:block text-white text-sm font-light cursor-pointer hover:text-white/80 transition-colors duration-300">
+                {/* <span className="hidden lg:block text-white text-sm font-light cursor-pointer hover:text-white/80 transition-colors duration-300">
                   Can we help?
-                </span>
+                </span> */}
                 
-                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                {/* <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                   <User className="h-5 w-5 text-white cursor-pointer hover:text-white/80 transition-colors duration-300" />
-                </motion.div>
+                </motion.div> */}
                 
-                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                {/* <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                   <ShoppingBag className="h-5 w-5 text-white cursor-pointer hover:text-white/80 transition-colors duration-300" />
-                </motion.div>
+                </motion.div> */}
 
                 {/* Mobile Menu Button */}
                 <button
@@ -131,7 +131,7 @@ const Navbar = () => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="hidden lg:flex justify-center items-center space-x-8 pb-4 border-t border-white/10 pt-4"
+            
             >
               {navItems.map((item, index) => (
                 <motion.a
@@ -170,14 +170,14 @@ const Navbar = () => {
                     </a>
                   ))}
                   <div className="pt-4">
-                    <div className="relative">
+                    {/* <div className="relative">
                       <input
                         type="text"
                         placeholder="SEARCH"
                         className="w-full bg-transparent border border-white/30 text-white placeholder-white/70 py-3 px-4 focus:border-white focus:outline-none text-sm tracking-wide"
                       />
                       <Search className="absolute right-3 top-3 h-4 w-4 text-white/70" />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </motion.div>
