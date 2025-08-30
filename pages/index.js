@@ -17,7 +17,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/1.png"
+            src="/new.jpg"
             fill
             style={{ objectFit: 'cover' }}
             className="opacity-90"
