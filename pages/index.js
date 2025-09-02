@@ -66,7 +66,7 @@ export default function Home() {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.8 }}
-              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white mb-4 lg:mb-6 tracking-wide leading-tight"
+              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-yellow-400 mb-4 lg:mb-6 tracking-wide leading-tight"
             >
               Most Premium<br />
               <span className="block">skincare</span>
@@ -80,13 +80,13 @@ export default function Home() {
               transition={{ delay: 0.9, duration: 0.8 }}
               className="mt-8 lg:mt-12"
             >
-              <p className="text-white/90 text-sm md:text-base lg:text-lg mb-2 font-light">
+              <p className="text-yellow-300 text-sm md:text-base lg:text-lg mb-2 font-light">
                 Order and
               </p>
-              <p className="text-white/90 text-sm md:text-base lg:text-lg mb-4 font-light">
+              <p className="text-yellow-300 text-sm md:text-base lg:text-lg mb-4 font-light">
                 life Chat
               </p>
-              <p className="text-white text-lg md:text-xl lg:text-2xl font-medium tracking-wider">
+              <p className="text-yellow-400 text-lg md:text-xl lg:text-2xl font-medium tracking-wider">
                 +41 78 222 44 00
               </p>
             </motion.div>
