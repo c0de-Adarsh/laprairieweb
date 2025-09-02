@@ -11,10 +11,10 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Navbar />
-             
+      
       {/* Hero Section */}
-      <div className="relative min-h-[150vh] flex items-center justify-center overflow-hidden pt-32 lg:pt-40">
-                 
+      <div className="relative min-h-[100vh] flex items-center justify-center overflow-hidden pt-16 lg:pt-20">
+        
         {/* Background Image - Desktop */}
         <div className="absolute inset-0 z-0 hidden md:block">
           <Image
@@ -36,57 +36,61 @@ export default function Home() {
             priority
           />
         </div>
- 
+        
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-10"></div>
- 
-        {/* Content */}
-        <div className="relative z-20 text-center px-4 max-w-6xl mx-auto">
-                     
-          {/* Product Image Placeholder */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 z-10"></div>
+        
+        {/* Main Content Container */}
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center justify-between h-full">
+          
+          {/* Left Side - Product Image */}
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="mb-8 lg:mb-12"
+            className="w-full lg:w-1/2 flex justify-center lg:justify-start mb-8 lg:mb-0"
           >
-                     
+           
           </motion.div>
-           
-          {/* Main Heading */}
-          <motion.h1
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+
+          {/* Right Side - Text Content */}
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-light text-white mb-6 lg:mb-8 tracking-wide leading-tight"
+            className="w-full lg:w-1/2 text-center lg:text-left lg:pl-8"
           >
-            DENSIFY AND NOURISH YOUR SKIN
-          </motion.h1>
-           
-          {/* Subtitle */}
-          <motion.p
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-base md:text-lg lg:text-xl text-white/90 mb-8 lg:mb-12 font-light tracking-widest"
-          >
-            DISCOVER THE NEW PURE GOLD COLLECTION
-          </motion.p>
-           
-          {/* CTA Button */}
-          <motion.button
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            whileHover={{
-               scale: 1.05,
-              backgroundColor: 'rgba(255, 255, 255, 1)'
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-white/80 hover:bg-white text-black font-medium py-3 lg:py-4 px-8 lg:px-12 text-sm tracking-widest transition-all duration-300 backdrop-blur-sm"
-          >
-            SHOP NOW
-          </motion.button>
+            
+            {/* Main Heading */}
+            <motion.h1
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white mb-4 lg:mb-6 tracking-wide leading-tight"
+            >
+              Most Premium<br />
+              <span className="block">skincare</span>
+              <span className="block">Swiss Made</span>
+            </motion.h1>
+
+            {/* Contact Info */}
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.9, duration: 0.8 }}
+              className="mt-8 lg:mt-12"
+            >
+              <p className="text-white/90 text-sm md:text-base lg:text-lg mb-2 font-light">
+                Order and
+              </p>
+              <p className="text-white/90 text-sm md:text-base lg:text-lg mb-4 font-light">
+                life Chat
+              </p>
+              <p className="text-white text-lg md:text-xl lg:text-2xl font-medium tracking-wider">
+                +41 78 222 44 00
+              </p>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
@@ -94,7 +98,6 @@ export default function Home() {
       {/* <SccondCard /> */}
       <OurService />
       <Footer />
-           
     </div>
   );
 }
