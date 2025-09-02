@@ -117,12 +117,12 @@ const Navbar = () => {
                 </motion.div> */}
 
                 {/* Mobile Menu Button */}
-                <button
+                {/* <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="lg:hidden text-white"
                 >
                   {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                </button>
+                </button> */}
               </div>
             </div>
 
