@@ -95,7 +95,7 @@ const Navbar = () => {
                 className="text-center"
               >
                 <h1 className="text-white text-xl lg:text-2xl font-light tracking-[0.3em] ml-10 cursor-pointer">
-                  LA PRAIRIE
+                
                 </h1>
                 <p className="text-white/80 text-xs font-light tracking-[0.2em] mt-0.5">
                   SWITZERLAND

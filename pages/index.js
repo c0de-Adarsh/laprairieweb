@@ -13,7 +13,7 @@ export default function Home() {
       <Navbar />
       
       {/* Hero Section */}
-      <div className="relative min-h-[100vh] flex items-center justify-center overflow-hidden pt-16 lg:pt-20">
+      <div className="relative min-h-[100vh] flex items-start md:items-center justify-center overflow-hidden pt-[120px] md:pt-20">
         
         {/* Background Image - Desktop */}
         <div className="absolute inset-0 z-0 hidden md:block">
@@ -41,7 +41,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 z-10"></div>
         
         {/* Main Content Container */}
-        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center justify-between h-full">
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-start md:items-center justify-between h-full">
           
           {/* Left Side - Product Image */}
           <motion.div
