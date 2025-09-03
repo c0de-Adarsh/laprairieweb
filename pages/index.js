@@ -94,10 +94,10 @@ export default function Home() {
         </div>
       </div>
 
-      <Card />
+      {/* <Card /> */}
       {/* <SccondCard /> */}
       <OurService />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
