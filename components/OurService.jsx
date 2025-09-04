@@ -77,9 +77,12 @@ const EBoutiqueServices = () => {
               <p className="text-gray-600 leading-relaxed mb-6 px-4 sm:px-0">
                 Book a one-on-one consultation with a Beauty Advisor
               </p>
-              <button className="bg-transparent border border-gray-400 text-gray-700 px-6 sm:px-8 py-3 text-sm font-medium tracking-wide hover:bg-gray-800 hover:text-white hover:border-gray-800 transition-all duration-300 ease-in-out w-full sm:w-auto">
-                BOOK NOW
-              </button>
+             <button 
+  className="bg-transparent border border-gray-400 text-gray-700 px-6 sm:px-8 py-3 text-sm font-medium tracking-wide hover:bg-gray-800 hover:text-white hover:border-gray-800 transition-all duration-300 ease-in-out w-full sm:w-auto"
+  onClick={() => window.location.href = 'tel:+41782224400'}
+>
+  +41782224400
+</button>
             </div>
           </div>
         </div>
