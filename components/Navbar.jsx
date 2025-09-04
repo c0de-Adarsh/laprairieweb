@@ -84,7 +84,7 @@ const Navbar = () => {
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center"
               >
-                <Globe className="h-5 w-5 lg:h-6 lg:w-6 text-white cursor-pointer hover:text-white/80 transition-colors duration-300" />
+                {/* <Globe className="h-5 w-5 lg:h-6 lg:w-6 text-white cursor-pointer hover:text-white/80 transition-colors duration-300" /> */}
               </motion.div>
 
               {/* Center - Logo */}
