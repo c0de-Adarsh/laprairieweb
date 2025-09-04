@@ -64,7 +64,7 @@ const Navbar = () => {
           animate={{ y: 0, opacity: 1 }}
           className=" text-white text-center py-3 text-xs font-light tracking-widest"
         >
-          SUBSCRIBE AND ENJOY 15% OFF YOUR FIRST ONLINE PURCHASE*
+          {/* SUBSCRIBE AND ENJOY 15% OFF YOUR FIRST ONLINE PURCHASE* */}
         </motion.div>
 
         {/* Main Navbar */}
@@ -98,7 +98,7 @@ const Navbar = () => {
                 
                 </h1>
                 <p className="text-white/80 text-xs font-light tracking-[0.2em] mt-0.5">
-                  SWITZERLAND
+                  {/* SWITZERLAND */}
                 </p>
               </motion.div>
 
